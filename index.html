@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NailArt Studio - Tu Belleza en Nuestras Manos</title>
+    <meta name="description" content="Estudio profesional de uñas especializados en diseños únicos, manicures, pedicures y nail art. Transforma tus uñas con nosotros.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'dancing': ['Dancing Script', 'cursive'],
+                    },
+                    colors: {
+                        'nail-pink': '#ff6b9d',
+                        'nail-purple': '#c44569',
+                        'nail-gold': '#f8b500',
+                        'nail-rose': '#ff9ff3',
+                        'nail-dark': '#2c2c54',
+                        'nail-light': '#ffeaa7',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
+                        'slideInLeft': 'slideInLeft 0.8s ease-out forwards',
+                        'slideInRight': 'slideInRight 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-gradient-to-br from-pink-50 to-purple-50">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-2 rounded-full">
+                        <i class="fas fa-gem text-white text-xl"></i>
+                    </div>
+                    <span class="font-dancing text-2xl font-bold bg-gradient-to-r from-nail-pink to-nail-purple bg-clip-text text-transparent">
+                        NailArt Studio
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Servicios</a>
+                    <a href="#galeria" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Galería</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Nosotros</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Contacto</a>
+                    <a href="#contacto" class="bg-gradient-to-r from-nail-pink to-nail-purple text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium">
+                        Reservar Cita
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-nail-pink focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white rounded-lg shadow-lg mt-2 p-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#inicio" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Servicios</a>
+                    <a href="#galeria" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Galería</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Nosotros</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-nail-pink transition-colors duration-300 font-medium">Contacto</a>
+                    <a href="#contacto" class="bg-gradient-to-r from-nail-pink to-nail-purple text-white px-6 py-2 rounded-full text-center font-medium">
+                        Reservar Cita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 text-6xl text-nail-pink animate-float">💅</div>
+            <div class="absolute top-40 right-20 text-4xl text-nail-purple animate-float" style="animation-delay: 1s;">✨</div>
+            <div class="absolute bottom-40 left-20 text-5xl text-nail-gold animate-float" style="animation-delay: 2s;">💎</div>
+            <div class="absolute bottom-20 right-10 text-3xl text-nail-rose animate-float" style="animation-delay: 3s;">🌸</div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 opacity-0 animate-fadeInUp">
+                        <span class="bg-gradient-to-r from-nail-pink via-nail-purple to-nail-gold bg-clip-text text-transparent">
+                            Tu Belleza
+                        </span>
+                        <br>
+                        <span class="text-gray-800">en Nuestras</span>
+                        <br>
+                        <span class="font-dancing text-nail-pink">Manos</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 opacity-0 animate-fadeInUp" style="animation-delay: 0.3s;">
+                        Especializados en diseños únicos de uñas, manicures profesionales y nail art que refleja tu personalidad. 
+                        <span class="text-nail-purple font-semibold">¡Transforma tus uñas con nosotros!</span>
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <a href="#contacto" class="bg-gradient-to-r from-nail-pink to-nail-purple text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            Reservar Cita
+                        </a>
+                        <a href="#galeria" class="border-2 border-nail-pink text-nail-pink px-8 py-4 rounded-full font-semibold text-lg hover:bg-nail-pink hover:text-white transition-all duration-300 inline-flex items-center justify-center">
+                            <i class="fas fa-images mr-2"></i>
+                            Ver Trabajos
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="flex justify-center lg:justify-start gap-8 mt-12 opacity-0 animate-fadeInUp" style="animation-delay: 0.9s;">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-nail-purple">500+</div>
+                            <div class="text-gray-600 text-sm">Clientas Felices</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-nail-pink">50+</div>
+                            <div class="text-gray-600 text-sm">Diseños Únicos</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-nail-gold">2+</div>
+                            <div class="text-gray-600 text-sm">Años Experiencia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="relative opacity-0 animate-slideInRight" style="animation-delay: 0.4s;">
+                    <div class="relative bg-gradient-to-br from-nail-pink/20 to-nail-purple/20 rounded-3xl p-8 backdrop-blur-sm">
+                        <div class="bg-white rounded-2xl shadow-2xl p-6">
+                            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Diseño de uñas profesional" 
+                                 class="w-full rounded-xl object-cover h-96">
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -right-4 bg-gradient-to-r from-nail-gold to-nail-light p-4 rounded-full shadow-lg animate-float">
+                            <i class="fas fa-star text-white text-xl"></i>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-gradient-to-r from-nail-rose to-nail-pink p-4 rounded-full shadow-lg animate-float" style="animation-delay: 1s;">
+                            <i class="fas fa-heart text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#servicios" class="text-nail-purple hover:text-nail-pink transition-colors duration-300">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-nail-pink to-nail-purple bg-clip-text text-transparent">
+                        Nuestros Servicios
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos una amplia gama de servicios profesionales para el cuidado y embellecimiento de tus uñas
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-nail-pink to-nail-purple mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Manicure Clásico -->
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hand-sparkles text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Manicure Clásico</h3>
+                    <p class="text-gray-600 mb-6">
+                        Cuidado completo de tus uñas con limado, cutícula, hidratación y esmaltado en colores clásicos.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-nail-purple">$25</span>
+                        <span class="text-sm text-gray-500">60 min</span>
+                    </div>
+                </div>
+                
+                <!-- Service 2: Manicure Permanente -->
+                <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="bg-gradient-to-r from-nail-purple to-nail-dark p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-gem text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Manicure Permanente</h3>
+                    <p class="text-gray-600 mb-6">
+                        Esmalte de larga duración con acabado perfecto que perdura hasta 3 semanas sin descascararse.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-nail-purple">$40</span>
+                        <span class="text-sm text-gray-500">90 min</span>
+                    </div>
+                </div>
+                
+                <!-- Service 3: Nail Art -->
+                <div class="bg-gradient-to-br from-yellow-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="bg-gradient-to-r from-nail-gold to-nail-light p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Nail Art Personalizado</h3>
+                    <p class="text-gray-600 mb-6">
+                        Diseños únicos y creativos adaptados a tu estilo personal. Desde minimalista hasta extravagante.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-nail-purple">$55</span>
+                        <span class="text-sm text-gray-500">120 min</span>
+                    </div>
+                </div>
+                
+                <!-- Service 4: Pedicure -->
+                <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="bg-gradient-to-r from-nail-rose to-nail-pink p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-spa text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Pedicure Spa</h3>
+                    <p class="text-gray-600 mb-6">
+                        Tratamiento relajante para tus pies con exfoliación, masaje hidratante y esmaltado perfecto.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-nail-purple">$35</span>
+                        <span class="text-sm text-gray-500">75 min</span>
+                    </div>
+                </div>
+                
+                <!-- Service 5: Uñas Acrílicas -->
+                <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="bg-gradient-to-r from-nail-purple to-nail-pink p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-magic text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Uñas Acrílicas</h3>
+                    <p class="text-gray-600 mb-6">
+                        Extensiones de uñas resistentes y duraderas con formas personalizadas y acabados profesionales.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-nail-purple">$65</span>
+                        <span class="text-sm text-gray-500">150 min</span>
+                    </div>
+                </div>
+                
+                <!-- Service 6: Reparación -->
+                <div class="bg-gradient-to-br from-yellow-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="bg-gradient-to-r from-nail-gold to-nail-purple p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Reparación Express</h3>
+                    <p class="text-gray-600 mb-6">
+                        Servicio rápido para reparar uñas rotas o dañadas. Solución inmediata para emergencias.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-nail-purple">$15</span>
+                        <span class="text-sm text-gray-500">30 min</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-nail-pink/10 to-nail-purple/10 rounded-2xl p-8 inline-block">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">¿No encuentras lo que buscas?</h3>
+                    <p class="text-gray-600 mb-6">Contáctanos para servicios personalizados y paquetes especiales</p>
+                    <a href="#contacto" class="bg-gradient-to-r from-nail-pink to-nail-purple text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Consultar Servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-20 bg-gradient-to-br from-gray-50 to-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-nail-pink to-nail-purple bg-clip-text text-transparent">
+                        Nuestros Trabajos
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Cada diseño cuenta una historia única. Descubre algunos de nuestros trabajos más destacados
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-nail-pink to-nail-purple mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Diseño nail art floral" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Nail Art Floral</h4>
+                            <p class="text-sm opacity-90">Diseño personalizado</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Manicure permanente elegante" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Permanente Elegante</h4>
+                            <p class="text-sm opacity-90">Acabado profesional</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Uñas acrílicas con glitter" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Acrílicas Glitter</h4>
+                            <p class="text-sm opacity-90">Brillo espectacular</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Diseño minimalista moderno" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Minimalista</h4>
+                            <p class="text-sm opacity-90">Estilo moderno</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300 md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Nail art temático especial" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold text-lg">Diseño Temático</h4>
+                            <p class="text-sm opacity-90">Creación especial para evento</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1604654894613-32f0a4f75eb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Pedicure profesional" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Pedicure Spa</h4>
+                            <p class="text-sm opacity-90">Relajación total</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Nail art geométrico" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Arte Geométrico</h4>
+                            <p class="text-sm opacity-90">Precisión perfecta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-gradient-to-r from-nail-pink to-nail-purple text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center">
+                    <i class="fas fa-instagram mr-2"></i>
+                    Ver más en Instagram
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- About Content -->
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="bg-gradient-to-r from-nail-pink to-nail-purple bg-clip-text text-transparent">
+                            Sobre Nosotros
+                        </span>
+                    </h2>
+                    
+                    <p class="text-xl text-gray-600 mb-6">
+                        En <span class="font-dancing text-2xl text-nail-pink">NailArt Studio</span>, creemos que tus uñas son una extensión de tu personalidad y estilo único.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-6">
+                        Desde 2022, nos hemos dedicado a brindar servicios de nail art de la más alta calidad, 
+                        combinando técnicas tradicionales con las últimas tendencias en diseño de uñas. 
+                        Nuestro equipo de especialistas certificadas se mantiene constantemente actualizado 
+                        con las nuevas técnicas y productos del mercado.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-certificate text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Certificación Profesional</h4>
+                                <p class="text-gray-600 text-sm">Técnicas avaladas por academias internacionales</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Atención Personalizada</h4>
+                                <p class="text-gray-600 text-sm">Cada cliente recibe un servicio único y especial</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-leaf text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Productos Premium</h4>
+                                <p class="text-gray-600 text-sm">Solo utilizamos marcas reconocidas y de calidad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-2 rounded-full mr-4 flex-shrink-0">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Higiene Total</h4>
+                                <p class="text-gray-600 text-sm">Protocolos estrictos de sanitización y seguridad</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team -->
+                    <div class="border-t pt-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Nuestro Equipo</h3>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                 alt="María González - Fundadora" 
+                                 class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">María González</h4>
+                                <p class="text-nail-purple font-medium">Fundadora & Nail Artist Principal</p>
+                                <p class="text-gray-600 text-sm">Especialista en Nail Art con 5+ años de experiencia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- About Image -->
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-nail-pink/20 to-nail-purple/20 rounded-3xl p-8">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Estudio profesional de uñas" 
+                             class="w-full rounded-2xl shadow-2xl">
+                    </div>
+                    
+                    <!-- Stats Card -->
+                    <div class="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-nail-purple mb-1">500+</div>
+                            <div class="text-gray-600 text-sm">Clientas Satisfechas</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Badge -->
+                    <div class="absolute -top-4 -right-4 bg-gradient-to-r from-nail-gold to-nail-light p-6 rounded-full shadow-lg">
+                        <div class="text-center text-white">
+                            <div class="text-2xl font-bold">2+</div>
+                            <div class="text-xs">Años</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-gradient-to-br from-gray-50 to-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-nail-pink to-nail-purple bg-clip-text text-transparent">
+                        Reserva tu Cita
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    ¿Lista para transformar tus uñas? Contáctanos y agenda tu próxima sesión de belleza
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-nail-pink to-nail-purple mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-3xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Formulario de Reserva</h3>
+                    
+                    <form class="space-y-6" id="contact-form">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">Nombre Completo *</label>
+                                <input type="text" id="nombre" name="nombre" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nail-pink focus:border-transparent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label for="telefono" class="block text-sm font-semibold text-gray-700 mb-2">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nail-pink focus:border-transparent transition-all duration-300">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nail-pink focus:border-transparent transition-all duration-300">
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="servicio" class="block text-sm font-semibold text-gray-700 mb-2">Servicio Deseado *</label>
+                                <select id="servicio" name="servicio" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nail-pink focus:border-transparent transition-all duration-300">
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="manicure-clasico">Manicure Clásico - $25</option>
+                                    <option value="manicure-permanente">Manicure Permanente - $40</option>
+                                    <option value="nail-art">Nail Art Personalizado - $55</option>
+                                    <option value="pedicure">Pedicure Spa - $35</option>
+                                    <option value="acrilicas">Uñas Acrílicas - $65</option>
+                                    <option value="reparacion">Reparación Express - $15</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="fecha" class="block text-sm font-semibold text-gray-700 mb-2">Fecha Preferida *</label>
+                                <input type="date" id="fecha" name="fecha" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nail-pink focus:border-transparent transition-all duration-300">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="mensaje" class="block text-sm font-semibold text-gray-700 mb-2">Mensaje Adicional</label>
+                            <textarea id="mensaje" name="mensaje" rows="4"
+                                      placeholder="Cuéntanos sobre el diseño que tienes en mente, colores preferidos, o cualquier otra información relevante..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nail-pink focus:border-transparent transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-nail-pink to-nail-purple text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Reserva
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <div class="bg-white rounded-3xl shadow-xl p-8 mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Dirección</h4>
+                                    <p class="text-gray-600">Av. Principal 123, Centro<br>Ciudad, Estado 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Teléfono</h4>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@nailartstudio.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-gradient-to-r from-nail-pink to-nail-purple p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Horarios</h4>
+                                    <p class="text-gray-600">
+                                        Lun - Vie: 9:00 AM - 7:00 PM<br>
+                                        Sáb: 9:00 AM - 6:00 PM<br>
+                                        Dom: 10:00 AM - 4:00 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="bg-white rounded-3xl shadow-xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Síguenos</h3>
+                        
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gradient-to-r from-pink-500 to-purple-600 p-4 rounded-full text-white hover:shadow-lg transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 rounded-full text-white hover:shadow-lg transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-gradient-to-r from-green-500 to-green-600 p-4 rounded-full text-white hover:shadow-lg transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-gradient-to-r from-pink-500 to-red-600 p-4 rounded-full text-white hover:shadow-lg transform hover:scale-110 transition-all duration-300">
+                                <i class="fab fa-tiktok text-xl"></i>
+                            </a>
+                        </div>
+                        
+                        <p class="text-gray-600 mt-4">
+                            Sigue nuestras redes sociales para ver los últimos diseños, 
+                            promociones especiales y consejos de cuidado para tus uñas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-nail-dark to-nail-purple text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-gradient-to-r from-nail-pink to-nail-gold p-2 rounded-full">
+                            <i class="fas fa-gem text-white text-xl"></i>
+                        </div>
+                        <span class="font-dancing text-3xl font-bold text-white">
+                            NailArt Studio
+                        </span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Tu destino para el nail art profesional. Especialistas en diseños únicos, 
+                        manicures perfectos y el cuidado que tus uñas merecen.
+                    </p>
+                    
+                    <!-- Newsletter -->
+                    <div>
+                        <h4 class="font-semibold mb-3">Suscríbete a nuestro newsletter</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Tu email" 
+                                   class="flex-1 px-4 py-2 rounded-l-lg text-gray-800 focus:outline-none">
+                            <button class="bg-nail-pink px-6 py-2 rounded-r-lg hover:bg-nail-rose transition-colors duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Inicio</a></li>
+                        <li><a href="#servicios" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Servicios</a></li>
+                        <li><a href="#galeria" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Galería</a></li>
+                        <li><a href="#nosotros" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Nosotros</a></li>
+                        <li><a href="#contacto" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Manicure Clásico</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Manicure Permanente</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Nail Art</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Pedicure Spa</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">Uñas Acrílicas</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300 text-sm">
+                    © 2024 NailArt Studio. Todos los derechos reservados.
+                </p>
+                
+                <!-- Social Media -->
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-nail-light transition-colors duration-300">
+                        <i class="fab fa-tiktok text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

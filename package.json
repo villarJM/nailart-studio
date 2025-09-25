@@ -1,0 +1,35 @@
+{
+  "name": "nailart-studio",
+  "version": "1.0.0",
+  "description": "Portal web moderno para emprendimiento de uñas",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Building project...'",
+    "deploy": "echo 'Deploying to production...'"
+  },
+  "keywords": [
+    "nail-art",
+    "manicure",
+    "pedicure",
+    "beauty",
+    "uñas",
+    "emprendimiento",
+    "tailwind",
+    "responsive"
+  ],
+  "author": "NailArt Studio Team",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nailart-studio/website.git"
+  },
+  "homepage": "https://nailartstudio.com",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
